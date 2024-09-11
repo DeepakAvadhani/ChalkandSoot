@@ -3,16 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Chalk And Soot</title>
+
+    <!-- Styles and fonts from both sections -->
+    <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Custom styles for second part -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- First Code Section -->
     <div class="container">
       <div class="col c-1">
         <div class="item"><img src="./assets/img1.jpg" alt="" /></div>
@@ -53,101 +59,80 @@
 
     <div class="content">
       <nav>
-        <div class="nav-item">
-          <a href="#" id="active">Chalk</a>
-        </div>
-        <div class="nav-item">
-          <a href="#" id="active">Soot</a>
-        </div>
-        <div class="nav-item">
-          <a href="#" id="active">About</a>
-        </div>
-        <div class="nav-item">
-          <a href="#" id="active">Contact</a>
-        </div>
+        <div class="nav-item"><a href="#" id="active">Chalk</a></div>
+        <div class="nav-item"><a href="#" id="active">Soot</a></div>
+        <div class="nav-item"><a href="#" id="active">About</a></div>
+        <div class="nav-item"><a href="#" id="active">Contact</a></div>
       </nav>
-
       <div class="hero">
         <div class="title"><p>Chalk And Soot</p></div>
       </div>
     </div>
+
+    <!-- Second Code Section -->
+    <header style="display: none;">
+      <nav>
+        <p>C&S</p>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main style="display: none;">
+      <video autoplay muted loop playsinline class="parallax bg-video">
+        <source src="./assets/vid.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="images-container">
+       
+      </div>
+    </main>
+
+    <!-- GSAP and Animation Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
     <script>
       let t1 = gsap.timeline({ delay: 0 });
+      
+      // Animation for the first part
       t1.to(".col", {
         top: 0,
         duration: 3,
         ease: "power4.inOut",
       });
-      t1.to(
-        ".c-1 .item",
-        {
-          top: 0,
-          stagger: 0.25,
-          duration: 3,
-          ease: "power4.inOut",
-        },
-        "-=2"
-      );
-      t1.to(
-        ".c-2 .item",
-        {
-          top: 0,
-          stagger: 0.25,
-          duration: 3,
-          ease: "power4.inOut",
-        },
-        "-=4"
-      );
-      t1.to(
-        ".c-3 .item",
-        {
-          top: 0,
-          stagger: 0.25,
-          duration: 3,
-          ease: "power4.inOut",
-        },
-        "-=4"
-      );
-      t1.to(
-        ".c-4 .item",
-        {
-          top: 0,
-          stagger: -0.25,
-          duration: 3,
-          ease: "power4.inOut",
-        },
-        "-=4"
-      );
-      t1.to(
-        ".c-5 .item",
-        {
-          top: 0,
-          stagger: -0.25,
-          duration: 3,
-          ease: "power4.inOut",
-        },
-        "-=4"
-      );
-      t1.to(
-        ".container",
-        {
-          scale: 6,
-          duration: 4,
-          ease: "power4.inOut",
-        },
-        "-=2"
-      );
-      t1.to(
-        ".nav-item a, .title p",
-        {
-          top: 0,
-          stagger: 0.075,
-          duration: 1,
-          ease: "power3.inOut",
-        },
-        "-=1.5"
-      );
+      t1.to(".c-1 .item", { top: 0, stagger: 0.25, duration: 3, ease: "power4.inOut" }, "-=2");
+      t1.to(".c-2 .item", { top: 0, stagger: 0.25, duration: 3, ease: "power4.inOut" }, "-=4");
+      t1.to(".c-3 .item", { top: 0, stagger: 0.25, duration: 3, ease: "power4.inOut" }, "-=4");
+      t1.to(".c-4 .item", { top: 0, stagger: -0.25, duration: 3, ease: "power4.inOut" }, "-=4");
+      t1.to(".c-5 .item", { top: 0, stagger: -0.25, duration: 3, ease: "power4.inOut" }, "-=4");
+      t1.to(".container", { scale: 6, duration: 4, ease: "power4.inOut" }, "-=2");
+      t1.to(".nav-item a, .title p", { top: 0, stagger: 0.075, duration: 1, ease: "power3.inOut" }, "-=1.5");
+
+      // Transition to second part after the first part finishes
+      t1.to(".content, .container", { autoAlpha: 0, duration: 1, ease: "power3.inOut" });
+
+      // Fade in the second section
+      t1.to("header, main", { display: 'block', autoAlpha: 1, duration: 2, ease: "power3.inOut" });
+      t1.to(".scattered", {
+      x: function() {
+        return Math.random() * 400 - 200; // Random X position
+      },
+      y: function() {
+        return Math.random() * 400 - 200; // Random Y position
+      },
+      opacity: 0.5,
+      duration: 3,
+      stagger: 0.2,
+      ease: "power4.out",
+      repeat: -1,
+      yoyo: true,
+    });
     </script>
+
+    <!-- Parallax effects for the second part -->
+    <script src="./scripts.js"></script>
   </body>
 </html>
