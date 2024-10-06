@@ -72,10 +72,10 @@ a, p {
   justify-content: space-between;
 }
 
-nav {
+.fixed-nav {
   display: flex;
   gap: 1em;
-  position: absolute; /* Change to absolute for positioning */
+  position: fixed; /* Change to absolute for positioning */
   top: 1em; /* Position from the top */
   left: 1em; /* Position from the left */
   z-index: 3; 
