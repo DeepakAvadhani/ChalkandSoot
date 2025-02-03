@@ -168,15 +168,25 @@ footer {
         height: 40px;
     }
 }
-.cursor{
+.cursor {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;      /* Vertically center */
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 0px;
+  height: 0px;
+  background: #ffffff; 
+  mix-blend-mode: difference;
   border-radius: 50%;
-  background-color: #fff;
-  z-index: 2000;
-  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   pointer-events: none;
+  z-index: 9999;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+active{
+  cursor: none;
 }
