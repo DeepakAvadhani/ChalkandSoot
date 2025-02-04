@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ".loader-imgs",
       {
         x: 0,
-        duration: 1.5,
+        duration: 3,
         ease: "power3.inOut",
       },
       "-=2.5"
@@ -29,13 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.1,
         ease: "power3.inOut",
       },
-      "-=0.5"
+      "-=1"
     )
     .to(
       ".loader",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        duration: 1,
+        duration: 0.5,
         ease: "power3.inOut",
       },
       "-=0.5"
